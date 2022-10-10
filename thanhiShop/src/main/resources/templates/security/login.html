@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sing-in</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+<main>
+    <div class="limiter" id="login">
+        <div class="container-login100"
+             style="background-image:url(https://image.freepik.com/free-photo/happy-woman-doing-online-shopping-home_329181-4301.jpg)">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <a href="http://localhost:8080/product/home" ><img class="login-logo" src="/img/logo.png" alt=""></a>
+                        </div>
+                        <h1 class="text-center text-light">WELCOME TO THANHI-SHOP</h1>
+                        <div style="padding: 30px">
+                            <h3 class="text-light">Don't have an account?</h3>
+                            <h3 class="text-caption">
+                                With a THANHI-SHOP account, you can enjoy the following benefits: up to 50% Cashback on eligible purchases,
+                                redeem discount coupons, order status and history, saved payment options and addresses,
+                                exclusive emails and more. Learn more</h3>
+                            <a class="btn btn-primary text-light">Create your new account</a>
+                        </div>
+
+                    </div>
+                    <div class="col-md-5 col-md-offset-1">
+                        <div class="login_topimg">
+                        </div>
+                        <div class="wrap-login100">
+                            <form class="login100-form validate-form"><span class="login100-form-title "> Login </span>
+                                <span class="login100-form-subtitle m-b-16"> to your account </span>
+                                <div class="wrap-input100 validate-input m-b-16"
+                                     data-validate="Valid email is required: ex@abc.xyz"><input class="input100"
+                                                                                                type="text"
+                                                                                                name="Username"
+                                                                                                placeholder="Username">
+                                    <span class="focus-input100"></span> <span class="symbol-input100"> <span
+                                            class="glyphicon glyphicon-user"></span> </span></div>
+                                <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
+                                    <input class="input100" type="password" name="pass" placeholder="Password"> <span
+                                        class="focus-input100"></span> <span class="symbol-input100"> <span
+                                        class="glyphicon glyphicon-lock"></span> </span></div>
+                                <div class="flex-sb-m w-full p-b-30">
+                                    <div class="contact100-form-checkbox">
+                                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                                        <label class="label-checkbox100" for="ckb1">
+                                            Remember me
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <a href="#" class="txt1">
+                                            Forgot Password?
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="container-login100-form-btn p-t-25">
+                                    <button class="login100-form-btn"> Login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

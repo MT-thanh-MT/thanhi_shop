@@ -1,0 +1,95 @@
+<div class="header-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="user-menu">
+          <ul>
+            <th:block th:if="${#request.remoteUser}">
+              <li><a href="#"><i class="fa fa-user"></i> Hi, [[${#request.remoteUser}]]</a></li>
+              <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>tb_products
+              <li><a th:href="@{/order/list|}"><i class="fa fa-money"></i> Your Orders</a></li>
+              <li th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
+                <a th:href="@{/admin/home|}"><i class="fa fa-money"></i> Your Orders</a>
+              </li>
+            </th:block>
+            <th:block th:unless="${#request.remoteUser}">
+              <li><a th:href="@{/security/login/form}"><i class="fa fa-user"></i> Login</a></li>
+              <li><a href="#"><i class="fa fa-user"></i> Sing up</a></li>
+              <li><a href="/cart/view"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
+            </th:block>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="header-right">
+          <ul class="list-unstyled list-inline">
+<!--            <li class="dropdown dropdown-small">-->
+<!--              <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>-->
+<!--              <ul class="dropdown-menu">-->
+<!--                <li><a href="#">USD</a></li>-->
+<!--                <li><a href="#">INR</a></li>-->
+<!--                <li><a href="#">GBP</a></li>-->
+<!--              </ul>-->
+<!--            </li>-->
+
+            <li class="dropdown dropdown-small">
+              <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">English</a></li>
+                <li><a href="#">French</a></li>
+                <li><a href="#">German</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> <!-- End header area -->
+
+
+
+<div class="mainmenu-area">
+  <div class="site-branding-area">
+    <div class="container">
+      <div class="row navbar-collapse collapse">
+        <div class="col-sm-6">
+          <div class="logo">
+            <h1><a href="http://localhost:8080/product/home"><img src="/img/logo.png"></a></h1>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="shopping-item">
+            <a href="/cart/view">Cart - <span class="cart-amunt">${{cart.amount | number:2}}</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">{{cart.count}}</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- End site branding area -->
+  <div class="container">
+    <div class="row">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li th:class="${activeMenu == 'home' ? 'active':''}"><a href="/product/home">Home</a></li>
+          <li th:class="${activeMenu == 'shop' ? 'active':''}"><a href="/product/list">Shop page</a></li>
+          <li th:class="${activeMenu == 'detail' ? 'active':''}"><a href="single-product.html">Single product</a></li>
+          <li th:class="${activeMenu == 'view' ? 'active':''}"><a href="/cart/view">Cart</a></li>
+          <li th:class="${activeMenu == 'checkout' ? 'active':''}"><a href="checkout.html">Checkout</a></li>
+          <li th:class="${activeMenu == 'category' ? 'active':''}"><a href="#">Category</a></li>
+          <li th:class="${activeMenu == 'others' ? 'active':''}"><a href="#">Others</a></li>
+          <li th:class="${activeMenu == 'contact' ? 'active':''}"><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> <!-- End mainmenu area -->

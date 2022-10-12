@@ -27,7 +27,7 @@
                     <div class="product-content-right">
                         <div class="woocommerce">
 
-                                <table cellspacing="0" class="shop_table cart">
+                                <table cellspacing="0" class="shop_table cart" th:fragment="shopping-cart">
                                     <thead>
                                     <tr>
                                         <th class="product-remove">&nbsp;</th>
@@ -45,7 +45,7 @@
                                         </td>
 
                                         <td class="product-thumbnail">
-                                            <a href=""><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="/img/{{item.image}}"></a>
+                                            <a href=""><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" ng-src="/img/{{item.image}}"></a>
                                         </td>
 
                                         <td class="product-name">
@@ -69,7 +69,7 @@
                                     <tr>
                                         <td class="actions" colspan="6">
                                             <button ng-click="cart.clear()" class="btn btn-danger">CLEAR</button>
-                                            <a th:href="@{/order/checkout|}" th:text="CHECKOUT" class="btn btn-primary">
+                                            <a th:href="@{/order/checkout}" th:text="CHECKOUT" class="btn btn-primary">
                                         </td>
                                     </tr>
                                     </tbody>

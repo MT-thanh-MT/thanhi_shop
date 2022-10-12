@@ -5,12 +5,13 @@
         <div class="user-menu">
           <ul>
             <th:block th:if="${#request.remoteUser}">
-              <li><a href="#"><i class="fa fa-user"></i> Hi, [[${#request.remoteUser}]]</a></li>
-              <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>tb_products
-              <li><a th:href="@{/order/list|}"><i class="fa fa-money"></i> Your Orders</a></li>
-              <li th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
-                <a th:href="@{/admin/home|}"><i class="fa fa-money"></i> Your Orders</a>
+              <li><a href="#"><i class="fa fa-user"></i> Hi, </a></li>
+              <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
+              <li><a th:href="@{/order/list}"><i class="fa fa-money"></i> Your Orders</a></li>
+              <li th:if="${#request.isUserInRole('DIRE')}">
+                <a th:href="@{/admin/home}"><i class="fa fa-money"></i> Admin Page</a>
               </li>
+              <li><a th:href="@{/security/logoff}"><i class="fa fa-money"></i> Logout</a></li>
             </th:block>
             <th:block th:unless="${#request.remoteUser}">
               <li><a th:href="@{/security/login/form}"><i class="fa fa-user"></i> Login</a></li>
@@ -61,8 +62,8 @@
         </div>
 
         <div class="col-sm-6">
-          <div class="shopping-item">
-            <a href="/cart/view">Cart - <span class="cart-amunt">${{cart.amount | number:2}}</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">{{cart.count}}</span></a>
+          <div>
+            <a class="shopping-item" href="/cart/view">Cart - <span class="cart-amunt">${{cart.amount | number:2}}</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">{{cart.count}}</span></a>
           </div>
         </div>
       </div>

@@ -2,6 +2,9 @@ package com.thanhi.service;
 
 import com.thanhi.model.Account;
 
+import java.util.Optional;
+
 public interface IAccountService {
-    public Account findById(String id);
+    Account findById(Long id);
+    Optional<Account> findAccountByUsername(String username);
 }

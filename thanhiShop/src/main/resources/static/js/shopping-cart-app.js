@@ -1,5 +1,8 @@
 const app = angular.module("shopping-cart-app", []);
-
+// app.config(function ($httpProvider) {
+//    var auth = 'Basic ${btoa("ADMIN:123")}';
+//    $httpProvider.defaults.headers.common["Authorization"] = auth;
+// });
 app.controller("shopping-cart-ctrl", function($scope, $http){
     $scope.cart = {
         items: [],
@@ -11,7 +14,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http){
             } else {
                 let url = "http://localhost:8080/rest/products/" + id;
                 $http.get(url).then(resp => {
-                    console.log(resp)
+                    console.log(resp.data)
                     resp.data.qty = 1;
                     this.items.push(resp.data);
                     this.saveToLocalStorage();
@@ -48,4 +51,44 @@ app.controller("shopping-cart-ctrl", function($scope, $http){
         }
     };
     $scope.cart.loadFromLocalStorage();
+    $scope.order = {
+        createDate: new Date(),
+        address: "",
+        account: {username: $("#username").text()},
+        get orderDetailList(){
+            return $scope.cart.items.map(item => {
+                return {
+                    product:{id:item.id},
+                    price: item.sellPrice,
+                    quantity: item.qty
+
+                }
+            });
+        },
+        purchase(){
+            var order = angular.copy(this);
+            console.log(order);
+            $http.post('http://localhost:8080/rest/orders', JSON.stringify(order)).then(resp => {
+                // $scope.cart.clear();
+                swal({
+                    title: "Good job!",
+                    text: "Order Success!",
+                    icon: "success",
+                    button: "OK",
+                })
+                //     .then(function () {
+                //     window.location.href = "/order/detail"+ resp.data.id;
+                // });
+            }).catch(error => {
+                swal({
+                    title: "ERROR!",
+                    text: "Order failed!",
+                    icon: "error",
+                    button: "OK",
+                });
+                console.log(error);
+            });
+
+        }
+    }
 });

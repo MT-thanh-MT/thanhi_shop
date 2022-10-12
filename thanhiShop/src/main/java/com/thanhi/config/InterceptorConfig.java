@@ -1,4 +1,4 @@
-package com.thanhi;
+package com.thanhi.config;
 
 import com.thanhi.interceptor.GloballInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
